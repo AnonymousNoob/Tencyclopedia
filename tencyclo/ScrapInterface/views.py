@@ -21,4 +21,4 @@ def index(request):
 		names.append(name.getText())
 	    
 
-	return TemplateResponse(request,"index.html",{'ob':names})
+	return HttpResponse(names)
