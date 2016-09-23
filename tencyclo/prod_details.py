@@ -3,12 +3,14 @@ import mechanize
 from BeautifulSoup import BeautifulSoup 
 
 
-
+phone = raw_input()
 browser = mechanize.Browser()
+browser.set_handle_robots(False)
 browser.open('http://www.gsmarena.com')
-
+browser.set_handle_robots(False)
+browser.addheaders = [('User-agent', 'Firefox')]
 browser.form = list(browser.forms())[0]
-browser['sName']='iphone7'
+browser['sName']=str(phone)
 response = browser.submit()
 
 soup = BeautifulSoup(response)
